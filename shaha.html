@@ -1,0 +1,344 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LevelUp - Confident Communicators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        .script-font { font-family: 'Pacifico', cursive; }
+        .section-title { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        .gradient-bg { background: linear-gradient(120deg, #fdf6ff 0%, #e0f7fa 100%); }
+        .btn-primary { background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%); color: #fff; border-radius: 9999px; padding: 0.75rem 2rem; font-weight: 600; box-shadow: 0 4px 16px rgba(124,58,237,0.12); transition: all 0.2s; }
+        .btn-primary:hover { background: linear-gradient(90deg, #06b6d4 0%, #7c3aed 100%); transform: translateY(-2px); }
+        .feature-icon { background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%); color: #fff; border-radius: 9999px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 shadow-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center w-full gap-4 md:gap-0">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 flex-shrink-0">
+                    <img src="logo.png" alt="LevelUp Logo" class="w-12 h-12 rounded-full shadow-md bg-white object-contain">
+                    <span class="script-font text-2xl text-violet-700 font-bold tracking-wide">LevelUp</span>
+                </div>
+                <!-- Nav and Button -->
+                <div class="flex-1 flex items-center justify-end gap-4">
+                    <nav class="hidden md:flex gap-8 text-lg font-medium">
+                        <a href="#about" class="hover:text-cyan-600 transition">About</a>
+                        <a href="#courses" class="hover:text-cyan-600 transition">Courses</a>
+                        <a href="#features" class="hover:text-cyan-600 transition">Features</a>
+                        <a href="#contact" class="hover:text-cyan-600 transition">Contact</a>
+                    </nav>
+                    <a href="#contact" class="btn-primary text-base hidden md:inline-block">Enroll Now</a>
+                    <div id="ist-clock" class="flex items-center gap-2 text-base font-mono bg-cyan-50 text-cyan-700 px-4 py-1 rounded-full shadow-sm border border-cyan-100 ml-2">
+                        <i class="fas fa-clock"></i>
+                        <span id="ist-time">--:--:--</span> IST
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-[80vh] flex items-center justify-center pt-32 pb-12 relative overflow-hidden">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-6">
+                <img src="logo.png" alt="LevelUp Logo" class="w-32 h-32 md:w-44 md:h-44 rounded-full shadow-2xl bg-white object-contain animate-float">
+            </div>
+            <h1 class="script-font text-4xl md:text-6xl mb-4 font-bold text-cyan-700">LevelUp</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-700">After school program</h2>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 mb-8">Empowering children to become fluent, creative, and confident speakers. Join our after school program and unlock your child's true potential!</p>
+            <a href="#contact" class="btn-primary text-lg">Get Started</a>
+        </div>
+        <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-18px); }
+            100% { transform: translateY(0); }
+        }
+        .animate-float {
+            animation: float 3.5s ease-in-out infinite;
+            box-shadow: 0 8px 32px 0 rgba(124,58,237,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+        }
+        </style>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="banner.jpg" alt="LevelUp Kids" class="rounded-2xl shadow-lg w-full object-cover">
+            </div>
+            <div>
+                <h2 class="section-title text-3xl md:text-4xl mb-4 text-cyan-700">Why LevelUp?</h2>
+                <p class="text-lg text-gray-700 mb-4">LevelUp is an innovative after school program designed to nurture confident communicators. Our curriculum blends English fluency, creative thinking, and public speaking in a fun, interactive environment.</p>
+                <ul class="list-disc pl-6 text-gray-700 space-y-2">
+                    <li>Expert mentors & engaging activities</li>
+                    <li>Personalized attention for every child</li>
+                    <li>Safe, supportive, and inspiring space</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl mb-8 text-cyan-700 text-center">Course Highlights</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="feature-icon"><i class="fas fa-language"></i></div>
+                    <h3 class="font-bold text-xl mb-2">English Fluency & Vocabulary</h3>
+                    <p>Build a strong foundation in spoken English, vocabulary, and pronunciation.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Creative Thinking</h3>
+                    <p>Boost imagination and problem-solving through fun activities and games.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Public Speaking & Storytelling</h3>
+                    <p>Master the art of expression, storytelling, and confident communication.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="feature-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Group Discussion & Role Plays</h3>
+                    <p>Collaborate, discuss, and perform in a supportive group setting.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="feature-icon"><i class="fas fa-spell-check"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Phonics & Spelling</h3>
+                    <p>Learn 42 letter sounds, blending, segmenting, tricky words, and spelling rules.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Worksheets & Activities</h3>
+                    <p>Hands-on worksheets and creative activities for every lesson.</p>
+                </div>
+            </div>
+            <div class="mt-12 flex flex-wrap justify-center gap-8">
+                <div class="bg-cyan-50 rounded-xl px-8 py-6 text-center shadow">
+                    <div class="text-lg font-semibold text-cyan-700 mb-1">Classes</div>
+                    <div class="text-2xl font-bold">Weekly Thrice</div>
+                </div>
+                <div class="bg-cyan-50 rounded-xl px-8 py-6 text-center shadow">
+                    <div class="text-lg font-semibold text-cyan-700 mb-1">Time</div>
+                    <div class="text-2xl font-bold">7:00 PM</div>
+                </div>
+                <div class="bg-cyan-50 rounded-xl px-8 py-6 text-center shadow">
+                    <div class="text-lg font-semibold text-cyan-700 mb-1">Age Group</div>
+                    <div class="text-2xl font-bold">All Age Groups</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Instructor Section (moved below Course Highlights) -->
+    <section id="instructor" class="py-16 bg-white">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-shrink-0 flex justify-center w-full md:w-auto">
+                <img src="https://ui-avatars.com/api/?name=Shakira+Banu&background=7c3aed&color=fff&size=180&rounded=true" alt="Shakira Banu" class="w-40 h-40 rounded-full shadow-lg object-cover border-4 border-cyan-100">
+            </div>
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="section-title text-2xl md:text-3xl text-cyan-700 mb-2">Meet Your Instructor</h2>
+                <div class="flex justify-center md:justify-start items-center mb-1">
+                    <span class="text-3xl font-bold">Shakira Banu</span>
+                    <span class="ml-4 text-base font-semibold text-cyan-700 bg-cyan-50 px-3 py-1 rounded-full">M.A., M.Phil., English Lit</span>
+                </div>
+                <div class="text-lg text-gray-700 mb-4 min-h-[2.5em]">
+                    <span id="typing-effect" class="font-bold text-cyan-700" style="font-size:1.25rem; letter-spacing:0.5px; font-family: 'Montserrat', Arial, sans-serif;"></span>
+                </div>
+                <p class="text-gray-600">With a passion for empowering young minds, Shakira brings years of experience in English education, grammar coaching, and phonics instruction. Her classes are interactive, engaging, and tailored for every learner.</p>
+            </div>
+        </div>
+        <script>
+        // Typing effect for instructor details
+        document.addEventListener('DOMContentLoaded', function() {
+            var details = [
+                'English language educator',
+                'Grammar coach',
+                'Phonics instructor'
+            ];
+            var el = document.getElementById('typing-effect');
+            var idx = 0, charIdx = 0, isDeleting = false;
+            function type() {
+                var current = details[idx];
+                if (!isDeleting) {
+                    el.textContent = current.substring(0, charIdx + 1);
+                    charIdx++;
+                    if (charIdx === current.length) {
+                        isDeleting = true;
+                        setTimeout(type, 1200);
+                        return;
+                    }
+                } else {
+                    el.textContent = current.substring(0, charIdx - 1);
+                    charIdx--;
+                    if (charIdx === 0) {
+                        isDeleting = false;
+                        idx = (idx + 1) % details.length;
+                    }
+                }
+                setTimeout(type, isDeleting ? 40 : 80);
+            }
+            type();
+        });
+        </script>
+    </section>
+    <section id="features" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+                <h2 class="section-title text-3xl md:text-4xl mb-8 text-cyan-700 text-center">Why Choose Us?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl p-8 text-center shadow">
+                            <i class="fas fa-chalkboard-teacher text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Experienced Mentors</h3>
+                    <p>Our passionate educators bring years of experience in child development and communication.</p>
+                </div>
+                        <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl p-8 text-center shadow">
+                    <i class="fas fa-child text-3xl text-cyan-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Fun & Safe Environment</h3>
+                    <p>We foster a safe, inclusive, and joyful space where every child can shine.</p>
+                </div>
+                        <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl p-8 text-center shadow">
+                    <i class="fas fa-award text-3xl text-yellow-500 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Proven Results</h3>
+                    <p>Our students show remarkable improvement in confidence, creativity, and communication skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Testimonial/Feedback Section with Marquee Effect -->
+        <section id="testimonials" class="py-12 bg-white">
+            <div class="container mx-auto px-4 text-center mb-8">
+                <h2 class="section-title text-3xl md:text-4xl mb-4 text-cyan-700">What Parents Say</h2>
+                <p class="text-gray-600 mb-6">Feedback from our happy parents and students</p>
+            </div>
+            <div class="overflow-hidden w-full relative">
+                <div id="marquee-track" class="flex items-center gap-8 whitespace-nowrap" style="will-change: transform; animation: marquee 32s linear infinite;">
+                    <img src="1.png" alt="Testimonial 1" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="banner.jpg" alt="Testimonial 2" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="1.jpg" alt="Testimonial 3" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="siva.jpg" alt="Testimonial 4" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="janani.jpg" alt="Testimonial 5" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="IMG_8860.jpeg" alt="Testimonial 6" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <!-- Repeat for smooth loop -->
+                    <img src="1.png" alt="Testimonial 1" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="banner.jpg" alt="Testimonial 2" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="1.jpg" alt="Testimonial 3" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="siva.jpg" alt="Testimonial 4" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="janani.jpg" alt="Testimonial 5" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                    <img src="IMG_8860.jpeg" alt="Testimonial 6" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
+                </div>
+            </div>
+            <style>
+            @keyframes marquee {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+            }
+            #marquee-track {
+                width: 200%;
+            }
+            </style>
+        </section>
+
+            <!-- Online Course Section with Mac Laptop and Google Meet Screenshot -->
+            <section id="online-course" class="py-16 relative" style="background: #fff;">
+                <!-- Graph lines background -->
+                <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index:0;" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="graph-lines" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#graph-lines)" />
+                </svg>
+                <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
+                    <div class="flex-1 flex justify-center">
+                        <!-- Mac laptop illustration with Google Meet screenshot -->
+                        <div class="relative w-[340px] md:w-[480px]">
+                            <img src="meeting.png" alt="MacBook" class="w-full drop-shadow-xl">
+                             </div>
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <h2 class="section-title text-3xl md:text-4xl mb-4 text-cyan-700">100% Online Classes</h2>
+                        <p class="text-lg text-gray-700 mb-4">Join our interactive online sessions from the comfort of your home! All classes are conducted via Google Meet, ensuring a safe and engaging learning experience for every child.</p>
+                        <ul class="list-disc pl-6 text-gray-700 space-y-2 text-left inline-block">
+                            <li>Live, face-to-face sessions with the instructor</li>
+                            <li>Easy access from any device (laptop, tablet, or phone)</li>
+                            <li>Collaborative activities and screen sharing</li>
+                            <li>Recordings available for revision</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl mb-8 text-cyan-700 text-center">Contact & Enrollment</h2>
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
+                    <div>
+                        <div class="text-lg font-semibold text-cyan-700 mb-1">Phone</div>
+                        <div class="text-2xl font-bold mb-2">77085 66633</div>
+                        <div class="text-lg font-semibold text-cyan-700 mb-1">Location</div>
+                        <div class="text-xl font-medium">Coimbatore, TN</div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <a href="tel:7708566633" class="btn-primary text-base"><i class="fas fa-phone mr-2"></i>Call Now</a>
+                        <a href="https://wa.me/917708566633" target="_blank" class="btn-primary text-base"><i class="fab fa-whatsapp mr-2"></i>WhatsApp</a>
+                    </div>
+                </div>
+                <form action="#" method="POST" class="grid gap-4">
+                    <input type="text" name="name" placeholder="Your Name" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" required>
+                    <input type="email" name="email" placeholder="Your Email" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" required>
+                    <textarea name="message" placeholder="Your Message" rows="3" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" required></textarea>
+                    <button type="submit" class="btn-primary w-full">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <img src="logo.png" alt="LevelUp Logo" class="w-14 h-14 rounded-full mx-auto mb-4 bg-white object-contain">
+            <div class="script-font text-2xl mb-2">LevelUp</div>
+            <p class="mb-4 text-lg">Empowering the next generation of confident communicators.</p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-facebook text-2xl"></i></a>
+                <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-instagram text-2xl"></i></a>
+                <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">© 2025 LevelUp. All rights reserved.</p>
+        </div>
+    </footer>
+<script>
+// Digital IST clock in header
+function updateISTClock() {
+    const now = new Date();
+    // Convert to IST (UTC+5:30)
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const istTime = new Date(utc + (5.5 * 60 * 60 * 1000));
+    const h = istTime.getHours().toString().padStart(2, '0');
+    const m = istTime.getMinutes().toString().padStart(2, '0');
+    const s = istTime.getSeconds().toString().padStart(2, '0');
+    const timeStr = `${h}:${m}:${s}`;
+    var el = document.getElementById('ist-time');
+    if (el) el.textContent = timeStr;
+}
+setInterval(updateISTClock, 1000);
+updateISTClock();
+</script>
+</body>
+</html>
