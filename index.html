@@ -1,346 +1,1436 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LevelUp - Confident Communicators</title>
+    <title>Level Up After School - Confident Communicators</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        .script-font { font-family: 'Pacifico', cursive; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-        .gradient-bg { background: linear-gradient(120deg, #fdf6ff 0%, #e0f7fa 100%); }
-        .btn-primary { background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%); color: #fff; border-radius: 9999px; padding: 0.75rem 2rem; font-weight: 600; box-shadow: 0 4px 16px rgba(124,58,237,0.12); transition: all 0.2s; }
-        .btn-primary:hover { background: linear-gradient(90deg, #06b6d4 0%, #7c3aed 100%); transform: translateY(-2px); }
-        .feature-icon { background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%); color: #fff; border-radius: 9999px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1rem; }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .bounce-animation {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Hero Animations */
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(20px, -50px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(40px, 50px) scale(1.05);
+            }
+        }
+        
+        .animate-blob {
+            animation: blob 20s infinite;
+        }
+        
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .animate-float-delayed {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+        
+        .animate-float-delayed-2 {
+            animation: float 6s ease-in-out infinite;
+            animation-delay: 2s;
+        }
+        
+        .animate-float-slow {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-slide-in-left {
+            animation: slideInLeft 1s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        .animation-delay-200 {
+            animation-delay: 0.2s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .animation-delay-400 {
+            animation-delay: 0.4s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .animation-delay-600 {
+            animation-delay: 0.6s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .animation-delay-800 {
+            animation-delay: 0.8s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        .animation-delay-1000 {
+            animation-delay: 1s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes textShimmer {
+            0% {
+                background-position: 0% center;
+            }
+            100% {
+                background-position: 200% center;
+            }
+        }
+        
+        .animate-text-shimmer {
+            animation: textShimmer 3s linear infinite;
+        }
+        
+        @keyframes gradientX {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradientX 3s ease infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(236, 72, 153, 0.5), 0 0 40px rgba(236, 72, 153, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 60px rgba(236, 72, 153, 0.5);
+            }
+        }
+        
+        .animate-pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounceSubtle {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .animate-bounce-subtle {
+            animation: bounceSubtle 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounceSlow {
+            0%, 100% {
+                transform: translateY(0) rotate(12deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(12deg);
+            }
+        }
+        
+        .animate-bounce-slow {
+            animation: bounceSlow 3s ease-in-out infinite;
+        }
+        
+        .animation-delay-500 {
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes tilt {
+            0%, 100% {
+                transform: rotate(-2deg);
+            }
+            50% {
+                transform: rotate(2deg);
+            }
+        }
+        
+        .animate-tilt {
+            animation: tilt 10s ease-in-out infinite;
+        }
+        
+        @keyframes pulseSlow {
+            0%, 100% {
+                opacity: 0.3;
+            }
+            50% {
+                opacity: 0.6;
+            }
+        }
+        
+        .animate-pulse-slow {
+            animation: pulseSlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes scroll {
+            0% {
+                opacity: 0;
+                transform: translateY(0);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+        }
+        
+        .animate-scroll {
+            animation: scroll 2s ease-in-out infinite;
+        }
+        
+        /* Marquee Styles */
+        .marquee-container {
+            overflow: hidden;
+            position: relative;
+            width: 100vw;
+            max-width: 100vw;
+        }
+        
+        .marquee-content {
+            display: flex;
+            animation: marquee 30s linear infinite;
+            gap: 1.25rem;
+            width: max-content;
+        }
+        
+        .marquee-slow {
+            animation: marquee 40s linear infinite;
+        }
+        
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        
+        .testimonial-card {
+            width:  350px;
+            min-width: 350px;
+            max-width: 350px;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            height: auto;
+            word-break: break-word;
+            white-space: normal;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+                @keyframes marquee {
+                        0% {
+                                transform: translateX(100vw);
+                        }
+                        100% {
+                                transform: translateX(calc(-100% + 100vw));
+                        }
+                }
+
+                /* Flip Card Styles */
+                .flip-card {
+                    background-color: transparent;
+                    width: 100%;
+                    max-width: 350px;
+                    height: 180px;
+                    perspective: 1000px;
+                }
+                @media (max-width: 640px) {
+                    .flip-card {
+                        height: 160px;
+                    }
+                }
+                .flip-card-inner {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    text-align: center;
+                    transition: transform 0.6s;
+                    transform-style: preserve-3d;
+                }
+                .flip-card:hover .flip-card-inner {
+                    transform: rotateY(180deg);
+                }
+                .flip-card-front, .flip-card-back {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                }
+                .flip-card-back {
+                    transform: rotateY(180deg);
+                }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50">
     <!-- Header -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-white/90 shadow-md">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex items-center w-full gap-4 md:gap-0">
-                <!-- Logo -->
-                <div class="flex items-center gap-3 flex-shrink-0">
-                    <img src="logo.png" alt="LevelUp Logo" class="w-12 h-12 rounded-full shadow-md bg-white object-contain">
-                    <span class="script-font text-2xl text-violet-700 font-bold tracking-wide">LevelUp</span>
-                </div>
-                <!-- Nav and Button -->
-                <div class="flex-1 flex items-center justify-end gap-4">
-                    <nav class="hidden md:flex gap-8 text-lg font-medium">
-                        <a href="#about" class="hover:text-cyan-600 transition">About</a>
-                        <a href="#courses" class="hover:text-cyan-600 transition">Courses</a>
-                        <a href="#features" class="hover:text-cyan-600 transition">Features</a>
-                        <a href="#contact" class="hover:text-cyan-600 transition">Contact</a>
-                    </nav>
-                    <a href="#contact" class="btn-primary text-base hidden md:inline-block">Enroll Now</a>
-                    <div id="ist-clock" class="flex items-center gap-2 text-base font-mono bg-cyan-50 text-cyan-700 px-4 py-1 rounded-full shadow-sm border border-cyan-100 ml-2">
-                        <i class="fas fa-clock"></i>
-                        <span id="ist-time">--:--:--</span> IST
-                    </div>
-                </div>
+    <header class="fixed top-4 z-50 mx-4 rounded-2xl py-4 w-[calc(100%-2rem)]" style="
+                            background: rgba(255, 255, 255, 0.15);
+                            backdrop-filter: blur(15px);
+                            border: 1px solid rgba(255, 255, 255, 0.2);
+                            box-shadow: 
+                                0 8px 32px rgba(0, 0, 0, 0.1),
+                                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+                        ">
+
+        
+        <div class="container mx-auto px-4 flex justify-between items-center relative z-10">
+            <div class="flex items-center space-x-3">
+                <div class="text-3xl">🎓</div>
+                <h1 class="text-xl font-bold text-gray-800 drop-shadow-sm">Level Up After School</h1>
             </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#home" class="text-gray-800 font-medium hover:text-pink-700 transition-colors drop-shadow-sm">Home</a>
+                <a href="#about" class="text-gray-800 font-medium hover:text-pink-700 transition-colors drop-shadow-sm">About</a>
+                <a href="#program" class="text-gray-800 font-medium hover:text-pink-700 transition-colors drop-shadow-sm">Program</a>
+                <a href="#contact" class="text-gray-800 font-medium hover:text-pink-700 transition-colors drop-shadow-sm">Contact</a>
+            </nav>
+            <button class="md:hidden text-gray-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg min-h-[80vh] flex items-center justify-center pt-32 pb-12 relative overflow-hidden">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center mb-6">
-                <img src="logo.png" alt="LevelUp Logo" class="w-32 h-32 md:w-44 md:h-44 rounded-full shadow-2xl bg-white object-contain animate-float">
-            </div>
-            <!-- <h1 class="script-font text-4xl md:text-6xl mb-4 font-bold text-cyan-700">LevelUp</h1> -->
-            <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-gray-700">After school program</h2>
-            <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-600 mb-8">we empower children to build strong language skills step by step. Through phonics, grammar, and spoken English. Kids learn to read with clarity, write with accuracy, and speak with confidence. Our mission is to make learning English simple, engaging, and life-changing.</p>
-            <a href="#contact" class="btn-primary text-lg">Get Started</a>
+    <section id="home" class="relative h-screen flex items-center pt-48 overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-violet-100 via-purple-100 to-pink-100"></div>
+        
+        <!-- LIVE Badge - Top Right Corner -->
+        <div class="absolute top-28 right-8 z-40">
+            <span class="relative flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-red-500 to-pink-500 shadow-xl animate-pulse-glow">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+                </span>
+                <span class="font-bold text-xs text-white tracking-wide">LIVE</span>
+            </span>
         </div>
+        
+        <!-- Floating Particles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute top-40 right-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-20 left-40 w-72 h-72 bg-fuchsia-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+            
+            <!-- Floating Icons -->
+            <div class="absolute top-24 left-1/4 text-4xl animate-float">📚</div>
+            <div class="absolute top-40 right-1/3 text-3xl animate-float-delayed">✨</div>
+            <div class="absolute bottom-32 left-1/3 text-4xl animate-float-slow">🎯</div>
+            <div class="absolute top-1/3 right-1/4 text-3xl animate-float-delayed-2">🌟</div>
+            <div class="absolute bottom-40 right-1/5 text-4xl animate-float">🚀</div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <!-- Left Side Content -->
+                <div class="text-gray-900 space-y-4 animate-slide-in-left">
+                    <!-- Main Heading -->
+                    <div class="space-y-1">
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black leading-tight">
+                            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600">
+                                LevelUp
+                            </span>
+                            <span class="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-pink-500 to-purple-600">
+                                After School Program
+                            </span>
+                        </h1>
+                    </div>
+                    
+                    <!-- Tagline -->
+                    <p class="text-sm sm:text-base text-gray-700 font-medium leading-relaxed animate-fade-in-up">
+                        "From first sounds to fluent speech"<br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 font-bold">Read Right & Speak Bright</span>
+                    </p>
+                    
+                    <!-- Benefits with Staggered Animation -->
+                    <div class="space-y-2">
+                        <div class="flex items-center gap-2 group animate-slide-in-right animation-delay-200">
+                            <div class="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg">
+                                <span class="text-base text-white">✓</span>
+                            </div>
+                            <span class="text-sm font-medium text-gray-800 group-hover:text-purple-600 transition-colors">English Fluency & Vocabulary</span>
+                        </div>
+                        <div class="flex items-center gap-2 group animate-slide-in-right animation-delay-400">
+                            <div class="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg">
+                                <span class="text-base text-white">✓</span>
+                            </div>
+                            <span class="text-sm font-medium text-gray-800 group-hover:text-purple-600 transition-colors">Public Speaking & Storytelling</span>
+                        </div>
+                        <div class="flex items-center gap-2 group animate-slide-in-right animation-delay-400">
+                            <div class="flex-shrink-0 w-7 h-7 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 shadow-lg">
+                                <span class="text-base text-white">✓</span>
+                            </div>
+                            <span class="text-sm font-medium text-gray-800 group-hover:text-purple-600 transition-colors">Confidence-Building Games & Activities</span>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Button -->
+                    <button class="group relative px-5 py-2.5 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 rounded-full text-sm font-bold text-white shadow-lg transform hover:scale-105 transition-all duration-300 overflow-hidden">
+                        <span class="relative z-10 flex items-center gap-2">
+                            <span>Enquire Now</span>
+                            <span class="text-base group-hover:translate-x-2 transition-transform duration-300">→</span>
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                    
+                    <!-- Mission & Vision Cards -->
+                    <div class="grid sm:grid-cols-2 gap-3 mt-4">
+                        <div class="group relative p-3 rounded-2xl bg-white/80 backdrop-blur-xl border border-purple-200 shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-br from-purple-100/0 to-pink-100/0 group-hover:from-purple-100/50 group-hover:to-pink-100/50 rounded-2xl transition-all duration-500"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <div class="text-xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">🎯</div>
+                                    <h3 class="text-base font-bold text-purple-700">Our Mission</h3>
+                                </div>
+                                <p class="text-xs text-gray-700">Empower children with strong language skills through engaging, effective English learning.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="group relative p-3 rounded-2xl bg-white/80 backdrop-blur-xl border border-blue-200 shadow-lg transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-100/0 to-indigo-100/0 group-hover:from-blue-100/50 group-hover:to-indigo-100/50 rounded-2xl transition-all duration-500"></div>
+                            <div class="relative z-10">
+                                <div class="flex items-center gap-2 mb-1.5">
+                                    <div class="text-xl transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">🌟</div>
+                                    <h3 class="text-base font-bold text-blue-700">Our Vision</h3>
+                                </div>
+                                <p class="text-xs text-gray-700">Build confident communicators who express clearly and succeed in every walk of life.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Side - Animated Image -->
+                <div class="relative flex justify-center lg:justify-end animate-slide-in-right">
+                    <!-- Glow Effect Behind Image -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-violet-300 via-purple-300 to-fuchsia-300 rounded-3xl blur-3xl opacity-40 animate-pulse-slow"></div>
+                    
+                    <!-- Image Container with 3D Effect -->
+                    <div class="relative group">
+                        <img src="girl.png" alt="Hero" class="relative w-full max-w-md h-auto rounded-3xl shadow-2xl transform group-hover:scale-105 group-hover:rotate-2 transition-all duration-500" />
+                        
+                        <!-- Floating Stats Badges -->
+                        <div class="absolute -top-6 -right-6 bg-gradient-to-br from-yellow-400 to-orange-500 text-white px-6 py-3 rounded-2xl shadow-2xl transform rotate-12 group-hover:rotate-6 transition-all duration-300 animate-bounce-slow">
+                            <div class="text-2xl font-black">100+</div>
+                            <div class="text-xs font-bold">Happy Kids</div>
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 bg-gradient-to-br from-green-400 to-emerald-500 text-white px-6 py-3 rounded-2xl shadow-2xl transform -rotate-12 group-hover:-rotate-6 transition-all duration-300 animate-bounce-slow animation-delay-500">
+                            <div class="text-2xl font-black">⭐ 4.9</div>
+                            <div class="text-xs font-bold">Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-purple-400 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-purple-600 rounded-full mt-2 animate-scroll"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- What Kids Will Learn & Program Details Combined -->
+    <section class="py-6 sm:py-8 relative overflow-hidden" style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 25%, #dbeafe 50%, #1e1b4b 50%, #312e81 75%, #4c1d95 100%);">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <!-- Left side circles -->
+            <div class="absolute top-20 left-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+            <div class="absolute bottom-20 left-10 w-56 h-56 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+            <!-- Right side stars -->
+            <div class="absolute top-10 right-20 w-2 h-2 bg-yellow-300 rounded-full animate-pulse"></div>
+            <div class="absolute top-32 right-40 w-1 h-1 bg-white rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+            <div class="absolute bottom-20 right-1/4 w-2 h-2 bg-purple-300 rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-7xl mx-auto">
+                
+                <!-- LEFT SIDE: What Kids Will Learn -->
+                <div>
+                    <div class="text-center mb-3">
+                        <div class="inline-block mb-1.5">
+                            <div class="flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full shadow-md border border-blue-200">
+                                <span class="text-base sm:text-lg bounce-animation">🎯</span>
+                                <h3 class="text-sm sm:text-base font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                                    What Kids Will Learn
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-2 sm:gap-2.5">
+                        <!-- Card 1 -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-blue-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">💬</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">English Fluency & Vocabulary</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Build strong vocabulary and speak with natural flow</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-400 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-purple-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">📝</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Sentence Construction & Grammar</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Master proper grammar and sentence structure</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-400 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-green-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">🎤</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Public Speaking & Storytelling</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Develop presentation skills and creative expression</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-orange-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">🎮</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Confidence-Building Games</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Fun activities that boost self-confidence</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-indigo-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">👥</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Group Discussions & Role Plays</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Interactive learning through peer engagement</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-400 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-pink-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">📚</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Worksheets & Practice</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Take-home materials for continued learning</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- RIGHT SIDE: Program Details -->
+                <div>
+                    <div class="text-center mb-3">
+                        <div class="inline-block mb-1.5">
+                            <div class="flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full shadow-md border border-purple-200">
+                                <span class="text-base sm:text-lg bounce-animation">📅</span>
+                                <h3 class="text-sm sm:text-base font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                                    Program Details
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 gap-2 sm:gap-2.5">
+                        <!-- Card 1 - Schedule & Time -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-cyan-500 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-green-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">🕐</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Schedule & Time</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Weekly Thrice at 7:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 - Age Group -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-purple-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">🏫</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Age Group</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">8-15 Years • All Levels Welcome</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 - Batch Size -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-orange-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">👥</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Batch Size</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Small Groups • Limited Seats</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Your Instructor -->
+    <section class="py-16 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-10 left-20 w-64 h-64 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+                                        <div class="text-2xl sm:text-3xl transform group-hover:scale-125 group-hover:rotate-180 transition-all duration-700">
+                                            �
+                                        </div>
+                                    </div>
+                                    <h4 class="font-bold text-sm sm:text-base mb-1 text-green-800">Schedule & Time</h4>
+                                    <div class="space-y-0.5">
+                                        <p class="text-base sm:text-lg font-bold text-gray-800">Weekly Thrice at 7:00 PM</p>
+                                        <p class="text-[11px] text-gray-600 font-medium">3 Days a Week • Evening Batch</p>
+                                    </div>
+                                    <div class="mt-1.5 flex justify-center gap-1">
+                                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce"></div>
+                                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce" style="animation-delay: 0.1s;"></div>
+                                        <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 - Age Group -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-purple-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">🏫</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Age Group</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">8-15 Years • All Levels Welcome</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 - Batch Size -->
+                        <div class="group relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 rounded-md blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
+                            <div class="relative bg-white p-2 sm:p-2.5 rounded-md shadow-sm hover:shadow-md transition-all duration-500 transform hover:-translate-y-1 border border-orange-100 flex items-start gap-2 sm:gap-3">
+                                <div class="text-2xl sm:text-3xl flex-shrink-0 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">👥</div>
+                                <div class="flex-1 min-w-0">
+                                    <h4 class="font-bold text-xs sm:text-sm text-gray-800">Batch Size</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-gray-600 leading-snug mt-0.5">Small Groups • Limited Seats</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Your Instructor -->
+    <section class="py-16 relative overflow-hidden bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-10 left-20 w-64 h-64 bg-violet-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+            <div class="absolute bottom-20 right-20 w-72 h-72 bg-fuchsia-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute top-1/2 left-1/3 w-56 h-56 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h3 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 mb-4">
+                    👩‍🏫 Meet Your Instructor
+                </h3>
+            </div>
+            
+            <!-- Instructor Card -->
+            <div class="max-w-4xl mx-auto">
+                <div class="relative group">
+                    <!-- Glowing Border Effect -->
+                    <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 rounded-3xl blur-lg opacity-75 group-hover:opacity-100 transition duration-500 animate-tilt"></div>
+                    
+                    <!-- Main Card -->
+                    <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden">
+                        <div class="grid md:grid-cols-5 gap-0">
+                            <!-- Left Side - Profile Image -->
+                            <div class="md:col-span-2 bg-gradient-to-br from-purple-600 via-pink-600 to-fuchsia-600 p-8 flex flex-col items-center justify-center relative overflow-hidden">
+                                <!-- Animated Circles -->
+                                <div class="absolute top-0 left-0 w-32 h-32 bg-white/10 rounded-full -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+                                <div class="absolute bottom-0 right-0 w-40 h-40 bg-white/10 rounded-full translate-x-1/3 translate-y-1/3 animate-pulse animation-delay-500"></div>
+                                
+                                <!-- Profile Icon -->
+                                <div class="relative z-10 w-48 h-48 bg-white rounded-full flex items-center justify-center mb-6 shadow-2xl transform group-hover:scale-110 transition-all duration-500 border-4 border-white/50">
+                                    <div class="w-full h-full rounded-full bg-gradient-to-br from-yellow-400 to-pink-500 flex items-center justify-center text-7xl">
+                                        👩‍💼
+                                    </div>
+                                </div>
+                                
+                                <!-- Name Badge -->
+                                <div class="relative z-10 text-center">
+                                    <h4 class="text-3xl font-black text-white mb-2 animate-fade-in-up">Shakira Banu</h4>
+                                    <p class="text-sm text-yellow-200 font-medium mb-3">M.A., M.Phil., English Lit</p>
+                                    <div class="flex items-center justify-center gap-2">
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs text-white font-semibold">⭐ Expert</span>
+                                        <span class="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-xs text-white font-semibold">🏆 Certified</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side - Credentials -->
+                            <div class="md:col-span-3 p-8 flex flex-col justify-center">
+                                <div class="space-y-6">
+                                    <!-- Qualification 1 -->
+                                    <div class="flex items-start gap-4 group/item transform hover:translate-x-2 transition-transform duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg transform group-hover/item:rotate-12 transition-all duration-300">
+                                            <span class="text-2xl">📚</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="text-xl font-bold text-gray-800 mb-1">Phonics Instructor</h5>
+                                            <p class="text-sm text-gray-600">Specialized in foundational reading skills</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Qualification 2 -->
+                                    <div class="flex items-start gap-4 group/item transform hover:translate-x-2 transition-transform duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shadow-lg transform group-hover/item:rotate-12 transition-all duration-300">
+                                            <span class="text-2xl">🌍</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="text-xl font-bold text-gray-800 mb-1">English Language Educator</h5>
+                                            <p class="text-sm text-gray-600">Comprehensive English language instruction</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Qualification 3 -->
+                                    <div class="flex items-start gap-4 group/item transform hover:translate-x-2 transition-transform duration-300">
+                                        <div class="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shadow-lg transform group-hover/item:rotate-12 transition-all duration-300">
+                                            <span class="text-2xl">✍️</span>
+                                        </div>
+                                        <div class="flex-1">
+                                            <h5 class="text-xl font-bold text-gray-800 mb-1">Grammar Coach</h5>
+                                            <p class="text-sm text-gray-600">Master of English grammar fundamentals</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Stats Row -->
+                                    <div class="grid grid-cols-3 gap-2 pt-3 border-t border-gray-200">
+                                        <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                                            <div class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">10+</div>
+                                            <div class="text-[9px] text-gray-600 font-semibold">Years Exp.</div>
+                                        </div>
+                                        <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                                            <div class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">100+</div>
+                                            <div class="text-[9px] text-gray-600 font-semibold">Students</div>
+                                        </div>
+                                        <div class="text-center transform hover:scale-105 transition-transform duration-300">
+                                            <div class="text-lg font-black text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-emerald-600">⭐ 4.9</div>
+                                            <div class="text-[9px] text-gray-600 font-semibold">Rating</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <style>
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-18px); }
-            100% { transform: translateY(0); }
-        }
-        .animate-float {
-            animation: float 3.5s ease-in-out infinite;
-            box-shadow: 0 8px 32px 0 rgba(124,58,237,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
-        }
+            @keyframes typing {
+                from { width: 0; }
+                to { width: 100%; }
+            }
+            
+            @keyframes blink {
+                50% { border-color: transparent; }
+            }
+            
+            .typewriter {
+                overflow: hidden;
+                border-right: 3px solid;
+                white-space: nowrap;
+                animation: typing 3s steps(30) 1s forwards, blink 0.75s step-end infinite;
+                width: 0;
+                display: inline-block;
+            }
+            
+            .typing-text {
+                overflow: hidden;
+                border-right: 2px solid #9333ea;
+                white-space: nowrap;
+                animation: typing 2s steps(30) 0.5s forwards, blink 0.75s step-end 3;
+                width: 0;
+                display: inline-block;
+            }
         </style>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <img src="22.jpeg" alt="LevelUp Kids" class="rounded-2xl shadow-lg w-full object-cover">
-            </div>
-            <div>
-                <h2 class="section-title text-3xl md:text-4xl mb-4 text-cyan-700">Why LevelUp?</h2>
-                <p class="text-lg text-gray-700 mb-4">LevelUp is an innovative after school program designed to nurture confident communicators. Our curriculum blends English fluency, creative thinking, and public speaking in a fun, interactive environment.</p>
-                <ul class="list-disc pl-6 text-gray-700 space-y-2">
-                    <li>Expert mentors & engaging activities</li>
-                    <li>Personalized attention for every child</li>
-                    <li>Safe, supportive, and inspiring space</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section id="courses" class="py-16 gradient-bg">
+    <!-- Interactive Online Classes Section -->
+    <section class="py-8 sm:py-12 relative overflow-hidden" style="
+        background-color: #ffffff;
+        background-image: 
+            linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+    ">
         <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl mb-8 text-cyan-700 text-center">Course Highlights</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="feature-icon"><i class="fas fa-language"></i></div>
-                    <h3 class="font-bold text-xl mb-2">English Fluency & Vocabulary</h3>
-                    <p>Build a strong foundation in spoken English, vocabulary, and pronunciation.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Creative Thinking</h3>
-                    <p>Boost imagination and problem-solving through fun activities and games.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Public Speaking & Storytelling</h3>
-                    <p>Master the art of expression, storytelling, and confident communication.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="feature-icon"><i class="fas fa-users"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Group Discussion & Role Plays</h3>
-                    <p>Collaborate, discuss, and perform in a supportive group setting.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="feature-icon"><i class="fas fa-spell-check"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Phonics & Spelling</h3>
-                    <p>Learn 42 letter sounds, blending, segmenting, tricky words, and spelling rules.</p>
-                </div>
-                <div class="bg-white rounded-xl shadow-lg p-8 text-center">
-                    <div class="feature-icon"><i class="fas fa-book-open"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Worksheets & Activities</h3>
-                    <p>Hands-on worksheets and creative activities for every lesson.</p>
-                </div>
-            </div>
-            <div class="mt-12 flex flex-wrap justify-center gap-8">
-                <div class="bg-cyan-50 rounded-xl px-8 py-6 text-center shadow">
-                    <div class="text-lg font-semibold text-cyan-700 mb-1">Classes</div>
-                    <div class="text-2xl font-bold">Weekly Thrice</div>
-                </div>
-                <div class="bg-cyan-50 rounded-xl px-8 py-6 text-center shadow">
-                    <div class="text-lg font-semibold text-cyan-700 mb-1">Time</div>
-                    <div class="text-2xl font-bold">7:00 PM</div>
-                </div>
-                <div class="bg-cyan-50 rounded-xl px-8 py-6 text-center shadow">
-                    <div class="text-lg font-semibold text-cyan-700 mb-1">Age Group</div>
-                    <div class="text-2xl font-bold">All Age Groups</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- Instructor Section (moved below Course Highlights) -->
-    <section id="instructor" class="py-16 bg-white">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
-            <div class="flex-shrink-0 flex justify-center w-full md:w-auto">
-                <img src="https://ui-avatars.com/api/?name=Shakira+Banu&background=7c3aed&color=fff&size=180&rounded=true" alt="Shakira Banu" class="w-40 h-40 rounded-full shadow-lg object-cover border-4 border-cyan-100">
-            </div>
-            <div class="flex-1 text-center md:text-left">
-                <h2 class="section-title text-2xl md:text-3xl text-cyan-700 mb-2">Meet Your Instructor</h2>
-                <div class="flex justify-center md:justify-start items-center mb-1">
-                    <span class="text-3xl font-bold">Shakira Banu</span>
-                    <span class="ml-4 text-base font-semibold text-cyan-700 bg-cyan-50 px-3 py-1 rounded-full">M.A., M.Phil., English Lit</span>
-                </div>
-                <div class="text-lg text-gray-700 mb-4 min-h-[2.5em]">
-                    <span id="typing-effect" class="font-bold text-cyan-700" style="font-size:1.25rem; letter-spacing:0.5px; font-family: 'Montserrat', Arial, sans-serif;"></span>
-                </div>
-                <p class="text-gray-600">With a passion for empowering young minds, Shakira brings years of experience in English education, grammar coaching, and phonics instruction. Her classes are interactive, engaging, and tailored for every learner.</p>
-            </div>
-        </div>
-        <script>
-        // Typing effect for instructor details
-        document.addEventListener('DOMContentLoaded', function() {
-            var details = [
-                'English language educator',
-                'Grammar coach',
-                'Phonics instructor'
-            ];
-            var el = document.getElementById('typing-effect');
-            var idx = 0, charIdx = 0, isDeleting = false;
-            function type() {
-                var current = details[idx];
-                if (!isDeleting) {
-                    el.textContent = current.substring(0, charIdx + 1);
-                    charIdx++;
-                    if (charIdx === current.length) {
-                        isDeleting = true;
-                        setTimeout(type, 1200);
-                        return;
-                    }
-                } else {
-                    el.textContent = current.substring(0, charIdx - 1);
-                    charIdx--;
-                    if (charIdx === 0) {
-                        isDeleting = false;
-                        idx = (idx + 1) % details.length;
-                    }
-                }
-                setTimeout(type, isDeleting ? 40 : 80);
-            }
-            type();
-        });
-        </script>
-    </section>
-    <section id="features" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-                <h2 class="section-title text-3xl md:text-4xl mb-8 text-cyan-700 text-center">Why Choose Us?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                        <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl p-8 text-center shadow">
-                            <i class="fas fa-chalkboard-teacher text-3xl text-blue-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Experienced Mentors</h3>
-                    <p>Our passionate educators bring years of experience in child development and communication.</p>
-                </div>
-                        <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl p-8 text-center shadow">
-                    <i class="fas fa-child text-3xl text-cyan-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Fun & Safe Environment</h3>
-                    <p>We foster a safe, inclusive, and joyful space where every child can shine.</p>
-                </div>
-                        <div class="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-xl p-8 text-center shadow">
-                    <i class="fas fa-award text-3xl text-yellow-500 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Proven Results</h3>
-                    <p>Our students show remarkable improvement in confidence, creativity, and communication skills.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        <!-- Testimonial/Feedback Section with Marquee Effect -->
-        <section id="testimonials" class="py-12 bg-white">
-            <div class="container mx-auto px-4 text-center mb-8">
-                <h2 class="section-title text-3xl md:text-4xl mb-4 text-cyan-700">What Parents Say</h2>
-                <p class="text-gray-600 mb-6">Feedback from our happy parents and students</p>
-            </div>
-            <div class="overflow-hidden w-full relative">
-                <div id="marquee-track" class="flex items-center gap-8 whitespace-nowrap" style="will-change: transform; animation: marquee 32s linear infinite;">
-                    <img src="feedback/1.jpeg" alt="Testimonial 1" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/2.jpeg" alt="Testimonial 2" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/3.jpeg" alt="Testimonial 3" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/4.jpeg" alt="Testimonial 4" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/4.jpeg" alt="Testimonial 5" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/4.jpeg" alt="Testimonial 6" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <!-- Repeat for smooth loop -->
-                    <img src="feedback/1.jpeg" alt="Testimonial 1" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/2.jpeg" alt="Testimonial 2" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/3.jpeg" alt="Testimonial 3" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/4.jpeg" alt="Testimonial 4" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/4.jpeg" alt="Testimonial 5" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                    <img src="feedback/4.jpeg" alt="Testimonial 6" class="h-32 w-auto rounded-xl shadow-lg border border-gray-100 bg-white inline-block">
-                </div>
-            </div>
-            <style>
-            @keyframes marquee {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            #marquee-track {
-                width: 200%;
-            }
-            </style>
-        </section>
-
-            <!-- Online Course Section with Mac Laptop and Google Meet Screenshot -->
-            <section id="online-course" class="py-16 relative" style="background: #fff;">
-                <!-- Graph lines background -->
-                <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index:0;" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="graph-lines" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e5e7eb" stroke-width="1"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#graph-lines)" />
-                </svg>
-                <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
-                    <div class="flex-1 flex justify-center">
-                        <!-- Mac laptop illustration with Google Meet screenshot -->
-                        <div class="relative w-[340px] md:w-[480px]">
-                            <img src="meeting.png" alt="MacBook" class="w-full drop-shadow-xl">
-                             </div>
+            <div class="grid lg:grid-cols-2 gap-6 sm:gap-8 items-center">
+                <!-- Left Side - Mac Laptop with Google Meet -->
+                <div class="relative order-2 lg:order-1">
+                    <div class="text-center mb-4 sm:mb-6">
+                        <span class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold shadow-lg">
+                            🎥 LIVE Interactive Sessions
+                        </span>
                     </div>
-                    <div class="flex-1 text-center md:text-left">
-                        <h2 class="section-title text-3xl md:text-4xl mb-4 text-cyan-700">100% Online Classes</h2>
-                        <p class="text-lg text-gray-700 mb-4">Join our interactive online sessions from the comfort of your home! All classes are conducted via Google Meet, ensuring a safe and engaging learning experience for every child.</p>
-                        <ul class="list-disc pl-6 text-gray-700 space-y-2 text-left inline-block">
-                            <li>Live, face-to-face sessions with the instructor</li>
-                            <li>Easy access from any device (laptop, tablet, or phone)</li>
-                            <li>Collaborative activities and screen sharing</li>
-                            <li>Recordings available for revision</li>
-                        </ul>
+                    
+                    <!-- Mac Laptop Frame -->
+                    <div class="relative mx-auto" style="max-width: 500px;">
+                        <!-- Laptop Screen -->
+                        <div class="bg-gray-900 rounded-t-xl sm:rounded-t-2xl p-2 sm:p-4 shadow-2xl border-2 sm:border-4 border-gray-800">
+                            <!-- Google Meet Interface -->
+                            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden aspect-video relative">
+                                <!-- Video Grid -->
+                                <div class="grid grid-cols-2 gap-1 sm:gap-2 p-2 sm:p-4 pb-12 sm:pb-16 h-full">
+                                    <!-- Teacher Video -->
+                                    <div class="bg-gradient-to-br from-blue-400 to-purple-500 rounded-md sm:rounded-lg flex items-center justify-center relative overflow-hidden">
+                                        <div class="absolute inset-0 flex items-center justify-center">
+                                            <div class="text-white text-3xl sm:text-6xl">👩‍🏫</div>
+                                        </div>
+                                        <div class="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 bg-black bg-opacity-70 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-white text-[10px] sm:text-xs">
+                                            Teacher Janani
+                                        </div>
+                                        <div class="absolute top-1 sm:top-2 right-1 sm:right-2 bg-red-500 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full text-white text-[10px] sm:text-xs flex items-center gap-0.5 sm:gap-1">
+                                            <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white rounded-full animate-pulse"></span> LIVE
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Student Videos -->
+                                    <div class="bg-gradient-to-br from-green-400 to-teal-500 rounded-md sm:rounded-lg flex items-center justify-center relative">
+                                        <div class="text-white text-2xl sm:text-5xl">👦</div>
+                                        <div class="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 bg-black bg-opacity-70 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-white text-[10px] sm:text-xs">
+                                            Arjun
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gradient-to-br from-pink-400 to-orange-500 rounded-md sm:rounded-lg flex items-center justify-center relative">
+                                        <div class="text-white text-2xl sm:text-5xl">👧</div>
+                                        <div class="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 bg-black bg-opacity-70 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-white text-[10px] sm:text-xs">
+                                            Ananya
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-gradient-to-br from-yellow-400 to-red-500 rounded-md sm:rounded-lg flex items-center justify-center relative">
+                                        <div class="text-white text-2xl sm:text-5xl">👦</div>
+                                        <div class="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 bg-black bg-opacity-70 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-white text-[10px] sm:text-xs">
+                                            Rohan
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Meet Controls -->
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-95 p-1.5 sm:p-2 flex justify-center gap-2 sm:gap-3 z-10">
+                                    <div class="w-7 h-7 sm:w-9 sm:h-9 bg-gray-700 rounded-full flex items-center justify-center text-white text-sm sm:text-base hover:bg-gray-600 transition-colors">
+                                        🎤
+                                    </div>
+                                    <div class="w-7 h-7 sm:w-9 sm:h-9 bg-gray-700 rounded-full flex items-center justify-center text-white text-sm sm:text-base hover:bg-gray-600 transition-colors">
+                                        📹
+                                    </div>
+                                    <div class="w-7 h-7 sm:w-9 sm:h-9 bg-red-600 rounded-full flex items-center justify-center text-white text-sm sm:text-base hover:bg-red-700 transition-colors">
+                                        📞
+                                    </div>
+                                    <div class="w-7 h-7 sm:w-9 sm:h-9 bg-gray-700 rounded-full flex items-center justify-center text-white text-sm sm:text-base hover:bg-gray-600 transition-colors">
+                                        💬
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Laptop Base -->
+                        <div class="bg-gradient-to-b from-gray-300 to-gray-400 h-4 rounded-b-2xl shadow-lg relative">
+                            <div class="absolute left-1/2 transform -translate-x-1/2 w-24 h-2 bg-gray-500 rounded-b-lg"></div>
+                        </div>
+                        
+                        <!-- Laptop Bottom -->
+                        <div class="bg-gradient-to-b from-gray-400 to-gray-500 h-2 mx-4 rounded-b-xl shadow-xl"></div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 bg-yellow-400 text-gray-900 px-2 sm:px-4 py-1 sm:py-2 rounded-full font-bold text-xs sm:text-sm shadow-lg bounce-animation">
+                        ⭐ Interactive
+                    </div>
+                    <div class="absolute -bottom-2 sm:-bottom-4 -right-2 sm:-right-4 bg-green-400 text-gray-900 px-2 sm:px-4 py-1 sm:py-2 rounded-full font-bold text-xs sm:text-sm shadow-lg bounce-animation" style="animation-delay: 0.5s;">
+                        🎯 Engaging
                     </div>
                 </div>
-            </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 gradient-bg">
-        <div class="container mx-auto px-4">
-            <h2 class="section-title text-3xl md:text-4xl mb-8 text-cyan-700 text-center">Contact & Enrollment</h2>
-            <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
+                
+                <!-- Right Side - Text Content -->
+                <div class="text-gray-800 space-y-3 sm:space-y-4 order-1 lg:order-2">
                     <div>
-                        <div class="text-lg font-semibold text-cyan-700 mb-1">Phone</div>
-                        <div class="text-2xl font-bold mb-2">77085 66633</div>
-                        <div class="text-lg font-semibold text-cyan-700 mb-1">Location</div>
-                        <div class="text-xl font-medium">Coimbatore, TN</div>
+                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-gray-900">
+                            Learn From Anywhere,<br>Anytime! 🚀
+                        </h2>
+                        <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                            Join our LIVE online classes and experience interactive learning like never before!
+                        </p>
                     </div>
-                    <div class="flex flex-col gap-2">
-                        <a href="tel:7708566633" class="btn-primary text-base"><i class="fas fa-phone mr-2"></i>Call Now</a>
-                        <a href="https://wa.me/917708566633" target="_blank" class="btn-primary text-base"><i class="fab fa-whatsapp mr-2"></i>WhatsApp</a>
+                    
+                    <div class="space-y-2 sm:space-y-3">
+                        <div class="flex items-start space-x-2 sm:space-x-3 card-hover bg-white p-2.5 sm:p-3 rounded-xl shadow-md">
+                            <div class="text-xl sm:text-2xl flex-shrink-0">🎥</div>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base mb-0.5 sm:mb-1">Face-to-Face Interaction</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">See your teacher and classmates in real-time with HD video quality</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-2 sm:space-x-3 card-hover bg-white p-2.5 sm:p-3 rounded-xl shadow-md">
+                            <div class="text-xl sm:text-2xl flex-shrink-0">🎮</div>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base mb-0.5 sm:mb-1">Fun Learning Tools</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">Interactive games, digital whiteboard, and screen sharing for enhanced learning</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-2 sm:space-x-3 card-hover bg-white p-2.5 sm:p-3 rounded-xl shadow-md">
+                            <div class="text-xl sm:text-2xl flex-shrink-0">🏠</div>
+                            <div>
+                                <h4 class="font-bold text-sm sm:text-base mb-0.5 sm:mb-1">Comfort of Home</h4>
+                                <p class="text-gray-600 text-xs sm:text-sm">Learn in a comfortable environment while staying safe and connected</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3 sm:p-4 rounded-2xl shadow-xl">
+                        <p class="text-sm sm:text-base font-bold mb-1">💻 All You Need is an Internet Connection!</p>
+                        <p class="text-purple-100 text-xs sm:text-sm">Compatible with laptop, tablet, or smartphone • Easy to join • No technical expertise required</p>
                     </div>
                 </div>
-                <form action="#" method="POST" class="grid gap-4">
-                    <input type="text" name="name" placeholder="Your Name" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" required>
-                    <input type="email" name="email" placeholder="Your Email" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" required>
-                    <textarea name="message" placeholder="Your Message" rows="3" class="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400" required></textarea>
-                    <button type="submit" class="btn-primary w-full">Send Message</button>
-                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-8 sm:py-10 relative overflow-hidden" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+        </div>
+        
+        <!-- Floating Decorative Elements -->
+        <div class="absolute top-10 left-10 w-20 h-20 bg-yellow-400 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-10 right-10 w-32 h-32 bg-purple-500 rounded-full blur-3xl opacity-20 animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Header -->
+            <div class="text-center mb-5 sm:mb-6">
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-2">
+                    <div class="flex items-center gap-1.5 bg-gradient-to-r from-yellow-400 to-orange-500 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-xl">
+                        <span class="text-lg sm:text-xl">💬</span>
+                        <span class="text-white font-bold text-[10px] sm:text-xs">Success Stories</span>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                        What Parents & Kids Say
+                    </h3>
+                </div>
+                <p class="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto">
+                    Real transformations from our amazing families ✨
+                </p>
+            </div>
+
+            <!-- Testimonials Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 max-w-7xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="group bg-gradient-to-br from-purple-600 to-pink-600 p-[2px] rounded-lg shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
+                    <div class="bg-slate-900 rounded-lg p-2.5 sm:p-3 h-full">
+                        <div class="flex items-start gap-2 mb-2">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-lg flex-shrink-0">
+                                P
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-white leading-tight">Priya Sharma</h4>
+                                <div class="flex gap-0.5 mt-0.5">
+                                    <span class="text-yellow-400 text-[10px] sm:text-xs">⭐⭐⭐⭐⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-[11px] sm:text-xs leading-relaxed italic">
+                            "My daughter Ananya has become so confident! She now speaks fluently and even participates in school debates. The teachers are amazing! 🎯"
+                        </p>
+                        <div class="mt-2 pt-2 border-t border-gray-700">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400">✓ Verified Parent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="group bg-gradient-to-br from-blue-600 to-cyan-600 p-[2px] rounded-lg shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105">
+                    <div class="bg-slate-900 rounded-lg p-2.5 sm:p-3 h-full">
+                        <div class="flex items-start gap-2 mb-2">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-lg flex-shrink-0">
+                                R
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-white leading-tight">Rajesh Kumar</h4>
+                                <div class="flex gap-0.5 mt-0.5">
+                                    <span class="text-yellow-400 text-[10px] sm:text-xs">⭐⭐⭐⭐⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-[11px] sm:text-xs leading-relaxed italic">
+                            "Arjun was very shy before joining. Now he tells us stories every day and his vocabulary has improved tremendously! 📚"
+                        </p>
+                        <div class="mt-2 pt-2 border-t border-gray-700">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400">✓ Verified Parent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="group bg-gradient-to-br from-green-600 to-emerald-600 p-[2px] rounded-lg shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-105">
+                    <div class="bg-slate-900 rounded-lg p-2.5 sm:p-3 h-full">
+                        <div class="flex items-start gap-2 mb-2">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-lg flex-shrink-0">
+                                S
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-white leading-tight">Sunita Patel</h4>
+                                <div class="flex gap-0.5 mt-0.5">
+                                    <span class="text-yellow-400 text-[10px] sm:text-xs">⭐⭐⭐⭐⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-[11px] sm:text-xs leading-relaxed italic">
+                            "Best decision we made! Kavya's reading skills improved dramatically and she writes beautiful stories now. Small batch size ensures personal attention. 💝"
+                        </p>
+                        <div class="mt-2 pt-2 border-t border-gray-700">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400">✓ Verified Parent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="group bg-gradient-to-br from-orange-600 to-red-600 p-[2px] rounded-lg shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105">
+                    <div class="bg-slate-900 rounded-lg p-2.5 sm:p-3 h-full">
+                        <div class="flex items-start gap-2 mb-2">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-lg flex-shrink-0">
+                                A
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-white leading-tight">Amit Gupta</h4>
+                                <div class="flex gap-0.5 mt-0.5">
+                                    <span class="text-yellow-400 text-[10px] sm:text-xs">⭐⭐⭐⭐⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-[11px] sm:text-xs leading-relaxed italic">
+                            "Rohan loves the classes! His grammar has improved significantly and he's no longer afraid to speak in English. 🌟"
+                        </p>
+                        <div class="mt-2 pt-2 border-t border-gray-700">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400">✓ Verified Parent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="group bg-gradient-to-br from-pink-600 to-rose-600 p-[2px] rounded-lg shadow-2xl hover:shadow-pink-500/50 transition-all duration-300 hover:scale-105">
+                    <div class="bg-slate-900 rounded-lg p-2.5 sm:p-3 h-full">
+                        <div class="flex items-start gap-2 mb-2">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-lg flex-shrink-0">
+                                M
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-white leading-tight">Meera Singh</h4>
+                                <div class="flex gap-0.5 mt-0.5">
+                                    <span class="text-yellow-400 text-[10px] sm:text-xs">⭐⭐⭐⭐⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-[11px] sm:text-xs leading-relaxed italic">
+                            "Fantastic program! Aarav's pronunciation has become so clear and his confidence in public speaking has grown tremendously! 🎤"
+                        </p>
+                        <div class="mt-2 pt-2 border-t border-gray-700">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400">✓ Verified Parent</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="group bg-gradient-to-br from-indigo-600 to-purple-600 p-[2px] rounded-lg shadow-2xl hover:shadow-indigo-500/50 transition-all duration-300 hover:scale-105">
+                    <div class="bg-slate-900 rounded-lg p-2.5 sm:p-3 h-full">
+                        <div class="flex items-start gap-2 mb-2">
+                            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 flex items-center justify-center text-white font-bold text-sm sm:text-base shadow-lg flex-shrink-0">
+                                V
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-xs sm:text-sm text-white leading-tight">Vikram Joshi</h4>
+                                <div class="flex gap-0.5 mt-0.5">
+                                    <span class="text-yellow-400 text-[10px] sm:text-xs">⭐⭐⭐⭐⭐</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 text-[11px] sm:text-xs leading-relaxed italic">
+                            "Exceptional teaching methods! Diya now reads English books fluently and her sentence construction has improved remarkably! 📖"
+                        </p>
+                        <div class="mt-2 pt-2 border-t border-gray-700">
+                            <span class="text-[9px] sm:text-[10px] text-gray-400">✓ Verified Parent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Stats -->
+            <div class="mt-5 sm:mt-6 text-center">
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-4 bg-white/5 backdrop-blur-lg border border-white/10 rounded-lg px-2.5 sm:px-4 py-1.5 sm:py-2">
+                    <div class="text-center">
+                        <div class="text-lg sm:text-xl font-bold text-yellow-400">500+</div>
+                        <div class="text-[9px] sm:text-[10px] text-gray-400">Happy Students</div>
+                    </div>
+                    <div class="h-5 w-px bg-gray-700"></div>
+                    <div class="text-center">
+                        <div class="text-lg sm:text-xl font-bold text-green-400">4.9/5</div>
+                        <div class="text-[9px] sm:text-[10px] text-gray-400">Average Rating</div>
+                    </div>
+                    <div class="h-5 w-px bg-gray-700"></div>
+                    <div class="text-center">
+                        <div class="text-lg sm:text-xl font-bold text-purple-400">100%</div>
+                        <div class="text-[9px] sm:text-[10px] text-gray-400">Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Enrollment -->
+    <section id="contact" class="py-8 sm:py-12 md:py-16 relative overflow-hidden" style="
+        background-color: #ffffff;
+        background-image: 
+            linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+        background-size: 40px 40px;
+    ">
+        <div class="container mx-auto px-4">
+            <!-- Header Section -->
+            <div class="text-center mb-6 sm:mb-8 md:mb-10">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">
+                    Let Your Child Shine as a<br>
+                    <span class="text-purple-600">Confident Communicator!</span>
+                </h2>
+                <p class="text-sm sm:text-base md:text-lg text-gray-600">
+                    Limited seats available - Transform your child's future today
+                </p>
+            </div>
+            
+            <!-- Main Contact Card -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border-2 border-purple-100">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <!-- Left Side - Contact Info -->
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-4 sm:p-5">
+                            <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4">Get In Touch</h3>
+                            
+                            <div class="space-y-3 sm:space-y-4">
+                                <!-- Phone -->
+                                <div class="flex items-start space-x-2 sm:space-x-3">
+                                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                                        <span class="text-lg sm:text-xl">📱</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-0.5 sm:mb-1">Call or WhatsApp</h4>
+                                        <a href="tel:9790822333" class="text-lg sm:text-xl font-bold text-green-600 hover:text-green-700 transition-colors">
+                                            9790822333
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Email -->
+                                <div class="flex items-start space-x-2 sm:space-x-3">
+                                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                                        <span class="text-lg sm:text-xl">📧</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-0.5 sm:mb-1">Email Us</h4>
+                                        <a href="mailto:levelsupasp@gmail.com" class="text-sm sm:text-base font-semibold text-blue-600 hover:text-blue-700 transition-colors break-all">
+                                            levelsupasp@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <!-- Location -->
+                                <div class="flex items-start space-x-2 sm:space-x-3">
+                                    <div class="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                                        <span class="text-lg sm:text-xl">🌐</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm mb-0.5 sm:mb-1">Learning Mode</h4>
+                                        <p class="text-sm sm:text-base font-semibold text-gray-700">100% Online Classes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Side - CTA -->
+                        <div class="bg-gradient-to-br from-purple-600 to-pink-600 p-5 sm:p-6 flex flex-col justify-center text-white">
+                            <div class="text-center">
+                                <div class="text-4xl sm:text-5xl mb-2 sm:mb-3">🎯</div>
+                                <h3 class="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Ready to Begin?</h3>
+                                <p class="text-purple-100 mb-4 sm:mb-5 text-sm sm:text-base">
+                                    Book your FREE demo class now!
+                                </p>
+                                
+                                <div class="space-y-2.5 sm:space-y-3">
+                                    <a href="tel:9790822333" class="block w-full bg-white text-purple-600 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base hover:bg-yellow-300 hover:text-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+                                        📱 Call Now
+                                    </a>
+                                    
+                                    <a href="https://wa.me/919790822333" target="_blank" class="block w-full bg-green-500 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-bold text-sm sm:text-base hover:bg-green-600 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+                                        💬 WhatsApp Us
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-10 mt-12">
-        <div class="container mx-auto px-4 text-center">
-            <img src="logo.png" alt="LevelUp Logo" class="w-14 h-14 rounded-full mx-auto mb-4 bg-white object-contain">
-            <div class="script-font text-2xl mb-2">LevelUp</div>
-            <p class="mb-4 text-lg">Empowering the next generation of confident communicators.</p>
-            <div class="flex justify-center space-x-4 mb-4">
-                <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-facebook text-2xl"></i></a>
-                <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-instagram text-2xl"></i></a>
-                <a href="#" class="hover:text-cyan-400 transition"><i class="fab fa-whatsapp text-2xl"></i></a>
-            </div>
-            <p class="text-gray-400 text-sm">© 2025 LevelUp. All rights reserved.</p>
+    <footer class="relative overflow-hidden py-3" style="background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);">
+        <!-- Animated Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
         </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-2">
+                <!-- Left: Brand -->
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center shadow-lg">
+                        <span class="text-sm">🎓</span>
+                    </div>
+                    <span class="font-bold text-white text-xs tracking-wide">Level Up After School</span>
+                </div>
+                
+                <!-- Center: Quick Links -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="mailto:levelsupasp@gmail.com" class="text-purple-200 hover:text-yellow-300 transition-all duration-300 text-xs flex items-center gap-1 hover:scale-110 transform">
+                        <span>📧</span>
+                        <span class="hidden sm:inline">Email</span>
+                    </a>
+                    <span class="text-purple-400">•</span>
+                    <a href="tel:9790822333" class="text-purple-200 hover:text-yellow-300 transition-all duration-300 text-xs flex items-center gap-1 hover:scale-110 transform">
+                        <span>📱</span>
+                        <span class="hidden sm:inline">Call</span>
+                    </a>
+                    <span class="text-purple-400">•</span>
+                    <a href="https://wa.me/919790822333" target="_blank" class="text-purple-200 hover:text-yellow-300 transition-all duration-300 text-xs flex items-center gap-1 hover:scale-110 transform">
+                        <span>💬</span>
+                        <span class="hidden sm:inline">WhatsApp</span>
+                    </a>
+                </div>
+                
+                <!-- Right: Copyright -->
+                <div class="flex items-center gap-1">
+                    <span class="text-yellow-400 text-xs">✨</span>
+                    <p class="text-[10px] text-purple-300">&copy; 2026 All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Bottom Line -->
+        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-yellow-400 to-transparent"></div>
     </footer>
-<script>
-// Digital IST clock in header
-function updateISTClock() {
-    const now = new Date();
-    // Convert to IST (UTC+5:30)
-    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-    const istTime = new Date(utc + (5.5 * 60 * 60 * 1000));
-    const h = istTime.getHours().toString().padStart(2, '0');
-    const m = istTime.getMinutes().toString().padStart(2, '0');
-    const s = istTime.getSeconds().toString().padStart(2, '0');
-    const timeStr = `${h}:${m}:${s}`;
-    var el = document.getElementById('ist-time');
-    if (el) el.textContent = timeStr;
-}
-setInterval(updateISTClock, 1000);
-updateISTClock();
-</script>
-</body>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+
+        // Contact button functionality
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Contact') || button.textContent.includes('Enroll')) {
+                button.addEventListener('click', function() {
+                    alert('Thank you for your interest! Please call or WhatsApp us to enroll your child. Our team will be happy to help you get started!');
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9816b6b3854d7f6e',t:'MTc1ODI2MDA2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
-
-
